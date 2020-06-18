@@ -65,8 +65,10 @@ class ViewController: UIViewController {
       guard let addNameVC = self.storyboard?.instantiateViewController(identifier: "AddNameViewController") as? AddNameViewController else {
         fatalError("Could not create addNameVC")
       }
-      
-      addNameVC.nameSubject
+      // name in -> to access whatever valye is passed
+      addNameVC.nameSubject.subscribe(onNext: {name in
+        self.namesArray.accept(self.namesArray.value + [name])
+      })
     })
     
     

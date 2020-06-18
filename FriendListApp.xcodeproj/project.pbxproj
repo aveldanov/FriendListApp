@@ -67,14 +67,22 @@
 			children = (
 				21488C36249AFAE500DF7564 /* AppDelegate.swift */,
 				21488C38249AFAE500DF7564 /* SceneDelegate.swift */,
-				21488C3A249AFAE500DF7564 /* ViewController.swift */,
+				21488C4C249B408700DF7564 /* Views */,
 				21488C3C249AFAE500DF7564 /* Main.storyboard */,
 				21488C3F249AFAE900DF7564 /* Assets.xcassets */,
 				21488C41249AFAE900DF7564 /* LaunchScreen.storyboard */,
 				21488C44249AFAE900DF7564 /* Info.plist */,
-				21488C4A249B3ABF00DF7564 /* AddNameViewController.swift */,
 			);
 			path = FriendListApp;
+			sourceTree = "<group>";
+		};
+		21488C4C249B408700DF7564 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				21488C3A249AFAE500DF7564 /* ViewController.swift */,
+				21488C4A249B3ABF00DF7564 /* AddNameViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		84419C7A915EE60FEC6A8BB0 /* Pods */ = {
