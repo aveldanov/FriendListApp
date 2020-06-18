@@ -17,9 +17,21 @@ class ViewController: UIViewController {
   @IBOutlet weak var nameEntryTextField: UITextField!
   @IBOutlet weak var submitButton: UIButton!
   @IBOutlet weak var namesLabel: UILabel!
+  
+  let disposeBag = DisposeBag()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+  }
+  
+  func bind(){
+    nameEntryTextField.rx.text
+      .map{
+      "Hello \($0)."
+    }
+    .bind(to: helloLabel.rx.text)
+  .disposed(by: disposeBag)
+    
   }
 
 
