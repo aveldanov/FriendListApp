@@ -27,9 +27,16 @@ class ViewController: UIViewController {
   
   func bind(){
     nameEntryTextField.rx.text
+      .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
       .map{
-      "Hello \($0!)."
+        if $0 == ""{
+          
+          return "Type your name below: "
+        }else{
+         return "Hello \($0!)."
+        }
     }
+    
     .bind(to: helloLabel.rx.text)
   .disposed(by: disposeBag)
     
