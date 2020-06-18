@@ -21,11 +21,15 @@ class ViewController: UIViewController {
   
   let disposeBag = DisposeBag()
   var namesArray = BehaviorRelay<[String]>(value: [])
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     bindTextField()
     bindSubmitButton()
     bindAddNameButton()
+    namesArray.asObservable().subscribe(onNext:{ names in
+      self.namesLabel.text = names.joined(separator: ", ")
+      }).disposed(by: disposeBag)
   }
   
   func bindTextField(){
@@ -68,12 +72,13 @@ class ViewController: UIViewController {
       }
       // name in -> to access whatever valye is passed
       addNameVC.nameSubject.subscribe(onNext: {name in
+        print(name)
         self.namesArray.accept(self.namesArray.value + [name])
         addNameVC.dismiss(animated: true, completion: nil)
 
       }).disposed(by: self.disposeBag)
       self.present(addNameVC, animated: true, completion: nil)
-    })
+      }).disposed(by: disposeBag)
     
     
   }

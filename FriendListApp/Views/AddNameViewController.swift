@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 class AddNameViewController: UIViewController {
-
+  
   let disposeBag = DisposeBag()
   let nameSubject = PublishSubject<String>()
   
@@ -19,23 +19,32 @@ class AddNameViewController: UIViewController {
   @IBOutlet weak var newNameTextField: UITextField!
   @IBOutlet weak var submitNameButton: UIButton!
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-    
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    bindSubmitNameButton()
+  }
+  
   
   func bindSubmitNameButton(){
-    if self.newNameTextField.text != ""{
-      submitNameButton.rx.tap.subscribe(onNext: {
+    print("Pressed Name Button")
+    print("What is it? ", newNameTextField.text)
+    print("inside")
+    submitNameButton.rx.tap.subscribe(onNext: {
+      if self.newNameTextField.text != "" {
         self.nameSubject.onNext(self.newNameTextField.text!)
-        }).disposed(by: disposeBag)
+        print(self.nameSubject)
+      }
       
-    }
-
+      
+      
+      
+    }).disposed(by: disposeBag)
+    
+    
+    
     
   }
-
- 
-
+  
+  
+  
 }
