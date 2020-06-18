@@ -68,7 +68,9 @@ class ViewController: UIViewController {
       // name in -> to access whatever valye is passed
       addNameVC.nameSubject.subscribe(onNext: {name in
         self.namesArray.accept(self.namesArray.value + [name])
-      })
+        addNameVC.dismiss(animated: true, completion: nil)
+
+      }).disposed(by: self.disposeBag)
     })
     
     
