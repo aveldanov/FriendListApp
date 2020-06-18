@@ -24,6 +24,17 @@ class AddNameViewController: UIViewController {
 
     }
     
+  
+  func bindSubmitNameButton(){
+    if self.newNameTextField.text != ""{
+      submitNameButton.rx.tap.subscribe(onNext: {
+        self.nameSubject.onNext(self.newNameTextField.text!)
+        }).disposed(by: disposeBag)
+      
+    }
+
+    
+  }
 
  
 

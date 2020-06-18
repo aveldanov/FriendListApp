@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     bindTextField()
     bindSubmitButton()
+    bindAddNameButton()
   }
   
   func bindTextField(){
@@ -71,10 +72,13 @@ class ViewController: UIViewController {
         addNameVC.dismiss(animated: true, completion: nil)
 
       }).disposed(by: self.disposeBag)
+      self.present(addNameVC, animated: true, completion: nil)
     })
     
     
   }
+
+  
 
 
 }
