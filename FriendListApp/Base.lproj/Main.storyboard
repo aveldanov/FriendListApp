@@ -55,9 +55,8 @@
                                     <constraint firstAttribute="height" constant="400" id="XaU-Ux-RLa"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dko-cT-R3c">
-                                <rect key="frame" x="138" y="574" width="148" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dko-cT-R3c">
+                                <rect key="frame" x="30" y="574" width="354" height="44"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="23"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="+ ADD NAME"/>
@@ -66,12 +65,16 @@
                         <color key="backgroundColor" red="1" green="0.75661531198307785" blue="0.18375231585151597" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="9f1-Ke-3Cx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="1sS-Mb-eGr"/>
+                            <constraint firstItem="Dko-cT-R3c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="4Iu-s0-SHQ"/>
+                            <constraint firstItem="Dko-cT-R3c" firstAttribute="top" secondItem="9f1-Ke-3Cx" secondAttribute="bottom" constant="10" id="TIn-16-rSu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dko-cT-R3c" secondAttribute="trailing" constant="30" id="XPp-M6-FvR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9f1-Ke-3Cx" secondAttribute="trailing" constant="20" id="eC9-7g-JBn"/>
                             <constraint firstItem="9f1-Ke-3Cx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="zAg-8R-rS9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="addNameButton" destination="Dko-cT-R3c" id="UPB-hD-SeK"/>
                         <outlet property="helloLabel" destination="Zdr-nn-kmA" id="tlS-YO-1Qz"/>
                         <outlet property="nameEntryTextField" destination="DQi-87-eXm" id="jDn-xF-nng"/>
                         <outlet property="namesLabel" destination="u0X-HM-vpv" id="SYb-Xa-yNt"/>
@@ -82,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="130.58035714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Name View Controller-->
         <scene sceneID="B0t-TZ-LTi">
             <objects>
-                <viewController id="MtY-1m-Irj" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNameViewController" id="MtY-1m-Irj" customClass="AddNameViewController" customModule="FriendListApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LOT-tc-DGh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,6 +124,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZVh-4u-N2O"/>
                     </view>
+                    <connections>
+                        <outlet property="newNameTextField" destination="0ew-Ra-AL0" id="dBY-7g-SHI"/>
+                        <outlet property="submitNameButton" destination="dzl-6W-k5a" id="EbU-Bh-FX6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abv-Py-rh5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

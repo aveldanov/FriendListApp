@@ -17,6 +17,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var nameEntryTextField: UITextField!
   @IBOutlet weak var submitButton: UIButton!
   @IBOutlet weak var namesLabel: UILabel!
+  @IBOutlet weak var addNameButton: UIButton!
   
   let disposeBag = DisposeBag()
   var namesArray = BehaviorRelay<[String]>(value: [])
@@ -53,6 +54,14 @@ class ViewController: UIViewController {
         self.helloLabel.rx.text.onNext("Type your name below: ")
       }
       }).disposed(by: disposeBag)
+    
+    
+  }
+  
+  
+  
+  func bindAddNameButton(){
+    
     
     
   }
