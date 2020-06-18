@@ -22,12 +22,13 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    bind()
   }
   
   func bind(){
     nameEntryTextField.rx.text
       .map{
-      "Hello \($0)."
+      "Hello \($0!)."
     }
     .bind(to: helloLabel.rx.text)
   .disposed(by: disposeBag)
