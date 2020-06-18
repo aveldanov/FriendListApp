@@ -19,13 +19,13 @@ class ViewController: UIViewController {
   @IBOutlet weak var namesLabel: UILabel!
   
   let disposeBag = DisposeBag()
-  
+  var namesArray = BehaviorRelay<[String]>(value: [])
   override func viewDidLoad() {
     super.viewDidLoad()
-    bind()
+    bindTextField()
   }
   
-  func bind(){
+  func bindTextField(){
     nameEntryTextField.rx.text
       .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
       .map{
@@ -39,6 +39,19 @@ class ViewController: UIViewController {
     
     .bind(to: helloLabel.rx.text)
   .disposed(by: disposeBag)
+    
+  }
+  
+  
+  func bindSubmitButton(){
+    submitButton.rx.tap.subscribe(onNext: {
+      if self.nameEntryTextField.text != ""{
+        self.namesArray.accept(self.namesArray.value + [self.nameEntryTextField.text!])
+        self.namesLabel.rx.text.onNext(self.namesArray.value.joined(separator: ", "))
+        
+      }
+    })
+    
     
   }
 
