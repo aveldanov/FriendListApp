@@ -63,7 +63,7 @@ class ViewController: UIViewController {
   func bindAddNameButton(){
     addNameButton.rx.tap.throttle(.milliseconds(500), scheduler: MainScheduler.instance).subscribe(onNext: {
       guard let addNameVC = self.storyboard?.instantiateViewController(identifier: "AddNameViewController") else {
-        print("Could not create addNameVC")
+        fatalError("Could not create addNameVC")
       }
     })
     
