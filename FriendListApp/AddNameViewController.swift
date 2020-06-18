@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class AddNameViewController: UIViewController {
 
+  let disposeBag = DisposeBag()
+  let nameSubject = PublishSubject<String>()
+  
   
   @IBOutlet weak var newNameTextField: UITextField!
   @IBOutlet weak var submitNameButton: UIButton!
