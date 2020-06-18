@@ -23,11 +23,12 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     bindTextField()
+    bindSubmitButton()
   }
   
   func bindTextField(){
     nameEntryTextField.rx.text
-      .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+      .debounce(.milliseconds(5), scheduler: MainScheduler.instance)
       .map{
         if $0 == ""{
           
@@ -48,9 +49,10 @@ class ViewController: UIViewController {
       if self.nameEntryTextField.text != ""{
         self.namesArray.accept(self.namesArray.value + [self.nameEntryTextField.text!])
         self.namesLabel.rx.text.onNext(self.namesArray.value.joined(separator: ", "))
-        
+        self.nameEntryTextField.rx.text.onNext("")
+        self.helloLabel.rx.text.onNext("Type your name below: ")
       }
-    })
+      }).disposed(by: disposeBag)
     
     
   }
